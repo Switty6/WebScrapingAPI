@@ -1,0 +1,24 @@
+{
+  "name": "webscraping-api-test",
+  "version": "1.0.0",
+  "description": "Test for WebScrapingAPI Technical interview",
+  "main": "src/index.ts",
+  "scripts": {
+    "dev": "nodemon src/index.ts"
+  },
+  "author": "Mihai Trandafir",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/express": "^4.17.18",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@xmldom/xmldom": "^0.8.10",
+    "axios": "^1.5.1",
+    "cheerio": "^1.0.0-rc.12",
+    "fastify": "^4.23.2",
+    "nodemon": "^3.0.1",
+    "puppeteer": "^21.3.8",
+    "xpath": "^0.0.33"
+  }
+}
