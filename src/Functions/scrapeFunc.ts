@@ -3,9 +3,15 @@ import { analyzeSentiment, tokenize } from "./sentiment";
 
 export async function ScrapeWebsite(url: string): Promise<any> {
   const browser = await puppeteer.launch({ headless: "new" });
-  try {
     const page = await browser.newPage();
-    await page.goto(url);
+
+    try{
+      await page.goto(url);
+    } catch (err:any) {
+      console.error(`🛑 ${err.message}`);
+      await browser.close();
+      return { error: err.message, code: 11 };
+    }
     console.log(`🤖 Scraping ${url}...`);
     await page.waitForSelector("a");
     const mainBody = await page.$x(`//*[@id="__next"]/main/div/div/div[2]/div`);
@@ -16,6 +22,7 @@ export async function ScrapeWebsite(url: string): Promise<any> {
     if (mainBody.length <= 0) {
       console.error("Main body element not found.");
       await browser.close();
+      return { error: "Main body element not found.", code: "12" };
     }
 
       for (const child of mainBody) {
@@ -105,16 +112,13 @@ export async function ScrapeWebsite(url: string): Promise<any> {
               console.error(`Error during scraping: ${err}`);
           }
           if (browser) await browser.close();
-          return { error: errorMsg }; 
+          return { error: errorMsg, code: 13 }; 
         }
 
       }
       return data;
 
     
-  } catch (err) {
-    console.error(err);
-  }
 }
 
 

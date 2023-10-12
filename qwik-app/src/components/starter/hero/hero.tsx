@@ -10,6 +10,7 @@ export default component$(() => {
     returnedData: "",
     searching: false,
     invalidUrl: false,
+    error: "",
   });
 
   const handleInputChange = $((event: any, element: { value: string; }) => {
@@ -24,6 +25,7 @@ export default component$(() => {
     }).catch((error) => {
       state.invalidUrl = true;
       state.searching = false;
+      state.error = error.response.data.msg;
       setTimeout(() => {
         state.invalidUrl = false;
       }, 3000);
@@ -50,7 +52,7 @@ export default component$(() => {
         onInput$={handleInputChange}
       />
       {state.searching == true ? <p style="margin:0;color:green">Scraping: {[state.weburl]} </p> : null}
-      {state.invalidUrl == true ? <p style="margin:0;color:red">ERROR: An error occured. Check the input! </p> : null}
+      {state.invalidUrl == true ? <p style="margin:0;color:red">ERROR: {[state.error]} </p> : null}
       <button
         type="button"
         class={["btn", styles.btnPrimary]}
