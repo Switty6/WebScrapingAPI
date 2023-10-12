@@ -1,10 +1,16 @@
 import fastify, {FastifyInstance} from 'fastify';
 import { ScrapeAPI } from './API/scrapeAPI';
 import { cacheNegativeWords, cachePositiveWords } from './Functions/sentiment';
+import cors from '@fastify/cors';
 
 export const serverAPI: FastifyInstance = fastify();
 
-function start(){
+async function start(){
+
+    // allowing CORS for all origins
+    await serverAPI.register(cors, {
+        origin: '*',
+    });
 
     // Cache words
     console.log('🤖 Caching words lists...');
