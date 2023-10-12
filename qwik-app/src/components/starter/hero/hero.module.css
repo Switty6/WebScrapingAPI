@@ -21,6 +21,7 @@ input[type=text] {
 .hero-image {
   width: 100%;
   position: absolute;
+  top: 0;
   object-fit: cover;
   z-index: -1;
   opacity: 0.2;
@@ -54,13 +55,13 @@ input[type=text] {
   padding: 10px;
   border-radius: 5px;
   max-width: 80%;
-  height: 550px;
+  height: 500px;
   word-wrap: break-word;
   overflow: auto;
 }
 .blackBox pre {
   height: 350px ;
-  max-height: 550px ;
+  max-height: 480px ;
   word-wrap: pre-wrap;
   margin: 0;
   white-space: pre-wrap;
