@@ -2,11 +2,9 @@ import { component$, $, useStore } from "@builder.io/qwik";
 import styles from "./hero.module.css";
 import ImgThunder from "~/media/thunder.png?jsx";
 import axios from "axios";
-import hljs from 'highlight.js/lib/core';
-import json from 'highlight.js/lib/languages/json';
 
 export default component$(() => {
-  hljs.registerLanguage('json', json);
+  
   const state = useStore({
     weburl: "",
     returnedData: "",
