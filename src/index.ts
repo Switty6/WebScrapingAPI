@@ -2,6 +2,7 @@ import fastify, {FastifyInstance} from 'fastify';
 import { ScrapeAPI } from './API/scrapeAPI';
 import { cacheNegativeWords, cachePositiveWords } from './Functions/sentiment';
 import cors from '@fastify/cors';
+import { MetricsAPI } from './API/metricsAlertAPI';
 
 export const serverAPI: FastifyInstance = fastify();
 
@@ -18,9 +19,9 @@ async function start(){
     cachePositiveWords();
     console.log('✅ Done');
     console.log('🤖 Registering APIs...');
-
     // Registering APIs
     ScrapeAPI(serverAPI);
+    MetricsAPI(serverAPI);
 
     console.log('✅ Done');
 
