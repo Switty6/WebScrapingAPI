@@ -60,6 +60,11 @@ Once the server is running, you can make a GET request to:
 http://localhost:3000/scrape?url=https://wsa-test.vercel.app/
 ```
 
+For content metrics:
+```
+http://localhost:3000/metrics?url=https://wsa-test.vercel.app/
+```
+
 ## Overview
 
 - The system uses `fastify` for creating a web server, `puppeteer` for web scraping, and `fs` & `path` for file system operations.
@@ -72,3 +77,9 @@ http://localhost:3000/scrape?url=https://wsa-test.vercel.app/
   - **Parameters**: 
     - `url`: The URL of the website you want to scrape.
   - **Response**: JSON containing scraped content details and sentiment analysis result.
+
+- **/metrics** (Method: GET)
+  - **Parameters**: 
+    - `url`: The URL of the website from which you want to gather content metrics.
+  - **Response**: JSON containing metrics such as average post length, sentiment distribution, and top recurring terms.
+
