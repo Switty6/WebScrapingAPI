@@ -1,7 +1,6 @@
-
 # Web Scraping and Analysis Test
 
-This project provides a web server that scrapes content from https://wsa-test.vercel.app/ and analyzes its sentiment to determine if it's positive, negative, or neutral.
+This project provides a web server that scrapes content from https://wsa-test.vercel.app/ and analyzes its sentiment to determine if it's positive, negative, or neutral. In addition to the API, the project also includes a web app named `qwik-app` for a user-friendly interface to the scraping service.
 
 ## Table of Contents
 
@@ -35,13 +34,31 @@ This project provides a web server that scrapes content from https://wsa-test.ve
    npm run dev
    ```
 
+5. **Setup and Start the Web App (qwik-app)**:
+   
+   First, navigate to the `qwik-app` directory:
+   ```bash
+   cd qwik-app
+   ```
+
+   Install the dependencies for the web app:
+   ```bash
+   npm install
+   ```
+
+   Finally, start the web app:
+   ```bash
+   npm start
+   ```
+
+   Note: Ensure you run the web app in a separate console or terminal instance.
+
 ## Usage
 
 Once the server is running, you can make a GET request to:
 ```
 http://localhost:3000/scrape?url=https://wsa-test.vercel.app/
 ```
-Replace `http://localhost:3000/scrape?url=https://wsa-test.vercel.app/` with the website you want to scrape and analyze.
 
 ## Overview
 
@@ -55,4 +72,3 @@ Replace `http://localhost:3000/scrape?url=https://wsa-test.vercel.app/` with the
   - **Parameters**: 
     - `url`: The URL of the website you want to scrape.
   - **Response**: JSON containing scraped content details and sentiment analysis result.
-
